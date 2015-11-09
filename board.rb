@@ -43,7 +43,7 @@ class Board
       @grid[end_pos[0]][end_pos[1]] = piece
       piece.position = [end_pos[0], end_pos[1]]
     else
-      fail "Can't move there!"
+      fail "Invalid move!"
     end
 
     castle(start, end_pos, piece.color) if piece.is_a?(King)

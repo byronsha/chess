@@ -33,10 +33,10 @@ class Pawn < Piece
       dx, dy = move
       dx *= -1 if color == :white
       space = [x + dx, y + dy]
-      if @board.in_bounds?(space)
-        if grid[space[0]][space[1]].nil?
-          valid_moves << space
-        end
+      if move[0] == 2 && @board.in_bounds?(space) && grid[space[0]][space[1]].nil? && grid[space[0] - dx / 2][space[1]].nil?
+        valid_moves << space
+      elsif move[0] == 1 && @board.in_bounds?(space) && grid[space[0]][space[1]].nil?
+        valid_moves << space
       end
     end
     valid_moves
